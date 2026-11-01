@@ -1,26 +1,15 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout
+from pyscript import display
+spices = [
+    "1/4 teaspoon of red pepper flakes (or as much as you wish)",
+    "Salt and black pepper (up to personal prefernces)",
+    "1/4 cup chopped fresh Italian parsley",
+    "1 cup finely grated Parmigiano-Reggiano cheese",
+    "6 cloves of finely sliced garlic",
+    "Some olive oil"
+]
 
-class MyWindow(QWidget):
 
-    def __init__(self):
-        super().__init__()
 
-        self.setWindowTitle("My First PyQt5 App")
-        self.resize(300, 150)
-        self.label = QLabel("")
-        self.button = QPushButton("Click Me")
-        self.button.clicked.connect(self.show_message)
 
-        layout = QVBoxLayout()
-        layout.addWidget(self.button)
-        layout.addWidget(self.label)
-        self.setLayout(layout)
-
-    def show_message(self):
-        self.label.setText("You clicked me!")
-
-app = QApplication(sys.argv)
-window = MyWindow()
-window.show()
-sys.exit(app.exec_())
+for i in spices:
+    display(i, target="text", append=True)
